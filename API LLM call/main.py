@@ -10,7 +10,8 @@ logging.basicConfig(
 
 
 def main():
-    print("Gemini Chat (type 'quit' to exit, 'clear' to reset)\n")
+    print("Gemini Chat")
+    print("Commands: 'quit', 'clear', '/save', '/load'\n")
     convo = Conversation()
 
     while True:
@@ -27,6 +28,12 @@ def main():
             break
         if user_input.lower() == "clear":
             convo.clear()
+            continue
+        if user_input.lower() == "/save":
+            convo.save()
+            continue
+        if user_input.lower() == "/load":
+            convo.load()
             continue
 
         convo.add_user_message(user_input)
