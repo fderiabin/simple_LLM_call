@@ -20,3 +20,5 @@ SYSTEM_PROMPT = "You are a helpful assistant. Be concise."
 
 CONNECT_TIMEOUT = 10
 READ_TIMEOUT = 30
+MAX_RETRIES = 3
+RETRY_BASE_DELAY = 1.0 # seconds
