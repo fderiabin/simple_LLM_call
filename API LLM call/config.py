@@ -10,6 +10,8 @@ if not API_KEY:
 MODEL = "gemini-2.5-flash"
 BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 URL = f"{BASE_URL}/{MODEL}:generateContent"
+#This is a URL that we use for streaming a LLM response.
+STREAM_URL = f"{BASE_URL}/{MODEL}:streamGenerateContent?alt=sse"
 
 HEADERS = {
     "x-goog-api-key": API_KEY,

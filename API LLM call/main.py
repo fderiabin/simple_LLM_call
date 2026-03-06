@@ -1,6 +1,6 @@
 import logging
 from conversation import Conversation
-from llm_client import send_message
+from llm_client import send_message_stream
 
 logging.basicConfig(
     level=logging.INFO,
@@ -37,10 +37,12 @@ def main():
             continue
 
         convo.add_user_message(user_input)
-        reply = send_message(convo.get_history())
-        convo.add_model_message(reply)
 
-        print(f"Gemini: {reply}\n")
+        print("Gemini: ", end="", flush=True)
+        reply = send_message_stream(convo.get_history())
+        convo.add_model_message(reply)
+        print()
+
 
 
 if __name__ == "__main__":
